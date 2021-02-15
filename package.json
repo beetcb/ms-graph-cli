@@ -1,0 +1,33 @@
+{
+  "name": "@beetcb/ms-graph-cli",
+  "version": "0.0.0",
+  "description": "",
+  "main": "min.js",
+  "files": [
+    "min.js"
+  ],
+  "scripts": {
+    "pub": "terser index.js -c -o min.js && npm publish --access=public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beetcb/ms-graph-cli.git"
+  },
+  "keywords": [
+    "microsoft",
+    "graph",
+    "cli",
+    "auth",
+    "auth-cli"
+  ],
+  "author": "beetcb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beetcb/ms-graph-cli/issues"
+  },
+  "homepage": "https://github.com/beetcb/ms-graph-cli#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "node-fetch": "^2.6.1"
+  }
+}
