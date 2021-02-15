@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "elegant cli to authenticate microsoft graph",
   "main": "min.js",
-  "files": [
-    "min.js"
-  ],
   "bin": "./min.js",
   "scripts": {
     "pub": "terser index.js -c -o min.js && npm publish --access=public"

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { prompt } = require('inquirer')
 const { EOL } = require('os')
 const { writeFileSync } = require('fs')
