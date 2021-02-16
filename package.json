@@ -1,11 +1,14 @@
 {
   "name": "@beetcb/ms-graph-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "elegant cli to authenticate microsoft graph",
-  "main": "min.js",
-  "bin": "./min.js",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
-    "pub": "terser index.js -c -o min.js && npm publish --access=public"
+    "build": "parcel build index.js --target node --no-source-maps",
+    "pub": "npm publish --access=public"
   },
   "repository": {
     "type": "git",
@@ -27,5 +30,8 @@
   "dependencies": {
     "inquirer": "^7.3.3",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "parcel-plugin-shebang": "^1.3.2"
   }
 }

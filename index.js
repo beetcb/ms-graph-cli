@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-const { prompt } = require('inquirer')
-const { EOL } = require('os')
-const { writeFileSync } = require('fs')
-const fetch = require('node-fetch')
-const path = require('path')
+import { prompt } from 'inquirer'
+import { EOL } from 'os'
+import { writeFileSync } from 'fs'
+import fetch from 'node-fetch'
+import { resolve } from 'path'
 
 const headers = {
   'content-type': 'application/x-www-form-urlencoded',
@@ -196,7 +196,7 @@ function delKey(credentials) {
   const save = process.argv[2]
   if (save) {
     writeFileSync(
-      path.resolve('./.env'),
+      resolve('./.env'),
       Object.keys(credentials).reduce((env, e) => {
         return `${env}${e} = ${credentials[e]}${EOL}`
       }, '')
