@@ -1,3 +1,8 @@
+<p align="center">
+    <img src="media/demo.svg" alt="demo" width="600">
+  <h3 align="center">ms-graph-cli, tiny & elegant cli to authenticate microsoft graph</h3>
+</p>
+
 ## Description
 
 `ms-graph-cli` helps you run through microsoft's [get access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user) at ease!. Created mainly for helping **onedrive & sharepoint** get the `access-token` and `refresh-token` to access ms-graph.
