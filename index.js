@@ -15,47 +15,47 @@ async function init() {
     {
       type: 'list',
       name: 'account_type',
-      message: 'Please select onedrive & sharepoint accout type',
+      message: 'Please select your OneDrive or SharePoint account type:',
       choices: [
         {
           value: 1,
-          name: 'global',
+          name: 'Global',
         },
         {
           value: 0,
-          name: 'operated by 21Vianet in China',
+          name: 'Operated by 21Vianet in China',
         },
       ],
     },
     {
       type: 'list',
       name: 'deploy_type',
-      message: 'Pleas select deploy type',
+      message: 'Please select your deploy type (OneDrive or SharePoint):',
       choices: [
         {
           value: 1,
-          name: 'onedrive',
+          name: 'OneDrive',
         },
         {
           value: 0,
-          name: 'sharepoint',
+          name: 'SharePoint',
         },
       ],
     },
     {
       type: 'input',
       name: 'client_id',
-      message: 'client_id:',
+      message: 'Enter your client_id:',
     },
     {
       type: 'input',
       name: 'client_secret',
-      message: 'client_secret:',
+      message: 'Enter your client_secret:',
     },
     {
       type: 'input',
       name: 'redirect_uri',
-      message: 'redirect_uri:',
+      message: 'Enter your redirect_uri (http://localhost would be ok here):',
     },
   ]
 
@@ -132,7 +132,7 @@ async function getDriveApi(credentials) {
       {
         type: 'list',
         name: 'isNeedSiteId',
-        message: 'Do you want to get sharepoint SiteId ?',
+        message: 'Do you want to get SharePoint SiteId ?',
         choices: [
           {
             value: 1,
@@ -152,7 +152,7 @@ async function getDriveApi(credentials) {
           type: 'input',
           name: 'hostName',
           message:
-            'To get the SharePoint SiteID, You must specify those:\n1. SharePoint site host (e.g., cent.sharepoint.com)',
+            'To get the SharePoint SiteID, You must specify:\n1. SharePoint site host (e.g., cent.sharepoint.com)',
         },
         {
           type: 'input',
@@ -201,7 +201,7 @@ function delKey(credentials) {
         return `${env}${e} = ${credentials[e]}${EOL}`
       }, '')
     )
-    console.warn('Saved generated credentials to ./.env , enjoy it! 🎉')
+    console.warn('Saved generated credentials to ./.env , enjoy! 🎉')
   } else {
     console.log(credentials)
   }
