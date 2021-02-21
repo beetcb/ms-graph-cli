@@ -26,8 +26,8 @@ async function init(lang) {
     client_id: ['Enter your client_id:', '请提供你的 client_id:'],
     client_secret: ['Enter your client_secret:', '请提供你的 client_secret:'],
     redirect_uri: [
-      'Enter your redirect_uri (Default：http://localhost):',
-      '请提供你的 redirect_uri (默认：http://localhost):',
+      'Enter your redirect_uri ([Default] http://localhost):',
+      '请提供你的 redirect_uri ([默认] http://localhost):',
     ],
     goBrowser: [
       'Use your browser to visit this URL for login and authorization:',
@@ -90,7 +90,7 @@ async function init(lang) {
   let res = await prompt(questions)
 
   const { client_id, client_secret, deploy_type, account_type } = res
-  
+
   // We need to manually set it cause iquirer set it as ''
   // so we can't use destructuring assignment default values
   let { redirect_uri } = res
@@ -272,7 +272,9 @@ function delKey(credentials) {
         return `${env}${e} = ${credentials[e]}${EOL}`
       }, '')
     )
-    console.warn('Saved generated credentials to ./.env , enjoy! 🎉')
+    console.warn(
+      lang ? '生成的验证信息已保存到  ./.env , enjoy! 🎉' : 'Saved generated credentials to ./.env , enjoy! 🎉'
+    )
   } else {
     console.log(credentials)
   }

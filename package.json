@@ -1,6 +1,6 @@
 {
   "name": "@beetcb/ms-graph-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "elegant cli to authenticate microsoft graph",
   "bin": "./dist/index.js",
   "files": [
