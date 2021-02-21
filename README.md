@@ -21,8 +21,11 @@ npx @beetcb/ms-graph-cli
 # Save generated credentials to .env file
 npx @beetcb/ms-graph-cli -s
 
-# Specify the display language, support CN \ EN
-px @beetcb/ms-graph-cli -l CN
+# Specify the display language, support CN \ EN, default is EN
+npx @beetcb/ms-graph-cli -l CN
+
+# Or using them both
+npx @beetcb/ms-graph-cli -s -l CN
 ```
 
 ## Generated credentials
