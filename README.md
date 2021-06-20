@@ -5,7 +5,10 @@
 
 ## Description
 
-`ms-graph-cli` helps you run through microsoft's [get access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user) at ease!. Created mainly for helping **onedrive & sharepoint** get the `access-token` and `refresh-token` to access ms-graph.
+`ms-graph-cli` helps you run through microsoft's
+[get access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user)
+at ease!. Created mainly for helping **onedrive & sharepoint** get the
+`access-token` and `refresh-token` to access ms-graph.
 
 ## Graph permissons needed
 
@@ -36,10 +39,15 @@ npx @beetcb/ms-graph-cli -s -l CN
 - `refresh_token`: use it to refresh the `access_token`
 - `redirect_uri`: your application redirect uri
 - `client_id`: your application client id
-- `client_secret`: your application client secret(this can be ignored when using public client)
+- `client_secret`: your application client secret(this can be ignored when using
+  public client)
 - `auth_endpoint`: api endpoint to request token
 - `drive_api`: api endpoint to access your drive resource
 - `graph_api`: api endpoint to access ms-graph
 - `site_id`: sharepoint site id
 
-These are your secret 💕, please keep it safe.
+These are your secrets 💕, please keep it safe.
+
+## TODO
+
+- [ ] Create a local server to catch the redirect `code`
