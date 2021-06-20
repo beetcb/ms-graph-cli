@@ -37,8 +37,8 @@ async function init(lang) {
     client_id: ["Enter your client_id:", "请提供你的 client_id:"],
     client_secret: ["Enter your client_secret:", "请提供你的 client_secret:"],
     redirect_uri: [
-      "Enter your redirect_uri ([Default] http://localhost):",
-      "请提供你的 redirect_uri ([默认] http://localhost):",
+      "Enter your redirect_uri ([Default] http://localhost:3000):",
+      "请提供你的 redirect_uri ([默认] http://localhost:3000):",
     ],
   };
 
@@ -98,7 +98,7 @@ async function init(lang) {
   // so we can't use destructuring assignment default values
   let { redirect_uri } = res;
   if (redirect_uri === "") {
-    redirect_uri = "http://localhost";
+    redirect_uri = "http://localhost:3000";
   }
 
   const auth_endpoint = `${
@@ -117,7 +117,7 @@ async function init(lang) {
     }).toString()}&redirect_uri=${redirect_uri}`
   );
 
-  const code = await serve();
+  const code = await serve(redirect_uri);
 
   const credentials = {
     account_type,
@@ -290,5 +290,5 @@ function delTmpKeys(credentials, keys) {
   } else {
     console.log(credentials);
   }
-  process.exit(1)
+  process.exit(1);
 })();

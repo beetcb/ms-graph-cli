@@ -17,6 +17,8 @@ at ease!. Created mainly for helping **onedrive & sharepoint** get the
 
 ## CLI usage
 
+**!Note**: To automate the redirection process, `ms-graph-cli` needs your app's `redirect_uri` to be `http://localhost:3000`, the port can be changed as long as you have system permission to create a http server on that port
+
 ```bash
 # Print generated credentials to stdout
 npx @beetcb/ms-graph-cli

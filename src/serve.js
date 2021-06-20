@@ -2,7 +2,7 @@ import fastify from "fastify";
 
 const server = fastify();
 
-export default async () =>
+export default async (url) =>
   new Promise(async (resolve, reject) => {
     server.get("/", (request, reply) => {
       const code = request.query.code;
@@ -16,5 +16,5 @@ export default async () =>
       }
       reject();
     });
-    await server.listen(3000);
+    await server.listen(parseInt(url) || 3000);
   });
