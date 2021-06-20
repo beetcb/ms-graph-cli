@@ -7,7 +7,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "parcel build index.js --no-source-maps",
+    "build": "parcel build src/ --no-source-maps",
     "fmt": "deno fmt .",
     "pub": "npm publish --access=public"
   },

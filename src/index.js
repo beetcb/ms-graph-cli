@@ -48,6 +48,7 @@ async function init(lang) {
     ],
   };
 
+  
   let questions = [
     {
       type: "list",
