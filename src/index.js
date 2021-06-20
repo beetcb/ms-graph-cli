@@ -5,6 +5,8 @@ import { resolve } from "path";
 import { writeFileSync } from "fs";
 
 import fetch from "node-fetch";
+import serve from "./serve";
+import open from "open";
 
 const headers = {
   "content-type": "application/x-www-form-urlencoded",
@@ -38,17 +40,8 @@ async function init(lang) {
       "Enter your redirect_uri ([Default] http://localhost):",
       "请提供你的 redirect_uri ([默认] http://localhost):",
     ],
-    goBrowser: [
-      "Use your browser to visit this URL for login and authorization:",
-      "请在浏览器中打开此地址进行登录和授权:",
-    ],
-    backTerminal: [
-      `Then enter the address you were redirected to(it's in your address bar):\n`,
-      " 然后请输入浏览器地址栏重定向的地址:\n",
-    ],
   };
 
-  
   let questions = [
     {
       type: "list",
@@ -114,24 +107,18 @@ async function init(lang) {
       : "https://login.partner.microsoftonline.cn"
   }/common/oauth2/v2.0`;
 
-  questions = [
-    {
-      type: "input",
-      name: "code",
-      message: `${i18nHints.goBrowser[lang]}\n${auth_endpoint}/authorize?${
-        new URLSearchParams({
-          client_id,
-          scope: deploy_type
-            ? "Files.Read.All Files.ReadWrite.All offline_access"
-            : "Sites.Read.All Sites.ReadWrite.All offline_access",
-          response_type: "code",
-        }).toString()
-      }&redirect_uri=${redirect_uri}\n${i18nHints.backTerminal[lang]}`,
-    },
-  ];
+  await open(
+    `${auth_endpoint}/authorize?${new URLSearchParams({
+      client_id,
+      scope: deploy_type
+        ? "Files.Read.All Files.ReadWrite.All offline_access"
+        : "Sites.Read.All Sites.ReadWrite.All offline_access",
+      response_type: "code",
+    }).toString()}&redirect_uri=${redirect_uri}`
+  );
 
-  res = await prompt(questions);
-  const code = new URL(res.code).searchParams.get("code");
+  const code = await serve();
+
   const credentials = {
     account_type,
     deploy_type,
@@ -152,14 +139,12 @@ async function acquireToken(credentials) {
 
     const res = await fetch(`${auth_endpoint}/token`, {
       method: "POST",
-      body: `${
-        new URLSearchParams({
-          grant_type: "authorization_code",
-          code,
-          client_id,
-          client_secret,
-        }).toString()
-      }&redirect_uri=${redirect_uri}`,
+      body: `${new URLSearchParams({
+        grant_type: "authorization_code",
+        code,
+        client_id,
+        client_secret,
+      }).toString()}&redirect_uri=${redirect_uri}`,
       headers,
     });
     if (res.ok) {
@@ -217,6 +202,7 @@ async function getDriveApi(credentials, lang) {
         ],
       },
     ];
+
     let res = await prompt(questions);
     if (res.isNeedSiteId) {
       questions = [
@@ -240,7 +226,7 @@ async function getDriveApi(credentials, lang) {
           headers: {
             Authorization: `bearer ${access_token}`,
           },
-        },
+        }
       );
 
       if (res.ok) {
@@ -294,14 +280,15 @@ function delTmpKeys(credentials, keys) {
       resolve("./.env"),
       Object.keys(credentials).reduce((env, e) => {
         return `${env}${e} = ${credentials[e]}${EOL}`;
-      }, ""),
+      }, "")
     );
     console.warn(
       lang
         ? "生成的验证信息已保存到  ./.env , enjoy! 🎉"
-        : "Saved generated credentials to ./.env , enjoy! 🎉",
+        : "Saved generated credentials to ./.env , enjoy! 🎉"
     );
   } else {
     console.log(credentials);
   }
+  process.exit(1)
 })();
