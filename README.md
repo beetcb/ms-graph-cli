@@ -6,9 +6,8 @@
 ## Description
 
 `ms-graph-cli` helps you run through microsoft's
-[get access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user)
-at ease!. Created mainly for helping **onedrive & sharepoint** get the
-`access-token` and `refresh-token` to access ms-graph.
+[get access on behalf of a user](https://docs.microsoft.com/en-us/graph/auth-v2-user) easily! Created mainly for helping **onedrive & sharepoint** get the
+`access-token` and `refresh-token` to access ms-graph API.
 
 ## Graph permissons needed
 
