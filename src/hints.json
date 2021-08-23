@@ -1,0 +1,133 @@
+{
+  "step_init": [
+    [
+      "account_type",
+      {
+        "prompt_type": "select",
+        "prompt_text": {
+          "en": [
+            "Please select your OneDrive or SharePoint account type:",
+            "Global",
+            "Operated by 21Vianet in China"
+          ],
+          "cn": [
+            "请选择你的 OneDrive 或 SharePoint 账户类型:",
+            "国际版",
+            "世纪互联版"
+          ]
+        }
+      }
+    ],
+    [
+      "deploy_type",
+      {
+        "prompt_type": "select",
+        "prompt_text": {
+          "en": [
+            "Please select your deploy type (OneDrive or SharePoint):",
+            "OneDrive",
+            "SharePoint"
+          ],
+          "cn": [
+            "请选择你的部署类型:",
+            "OneDrive",
+            "SharePoint"
+          ]
+        }
+      }
+    ],
+    [
+      "client_id",
+      {
+        "prompt_type": "text",
+        "prompt_text": {
+          "en": [
+            "Enter your client_id:"
+          ],
+          "cn": [
+            "请提供你的 client_id:"
+          ]
+        }
+      }
+    ],
+    [
+      "client_secret",
+      {
+        "prompt_type": "password",
+        "prompt_text": {
+          "en": [
+            "Enter your client_secret:"
+          ],
+          "cn": [
+            "请提供你的 client_secret:"
+          ]
+        }
+      }
+    ],
+    [
+      "redirect_uri",
+      {
+        "prompt_type": "text",
+        "prompt_text": {
+          "en": [
+            "Enter your redirect_uri ([Default] http://localhost:3000):"
+          ],
+          "cn": [
+            "请提供你的 redirect_uri ([默认] http://localhost:3000):"
+          ]
+        },
+        "initial": "http://localhost:3000"
+      }
+    ]
+  ],
+  "step_sharepoint_need_site_id": [
+    [
+      "need_site_id",
+      {
+        "prompt_type": "select",
+        "prompt_text": {
+          "en": [
+            "Do you want to get SharePoint SiteId ?",
+            "YES",
+            "NO"
+          ],
+          "cn": [
+            "是否获取 SharePoint SiteId ?",
+            "是",
+            "否"
+          ]
+        }
+      }
+    ]
+  ],
+  "step_sharepoint_site_id": [
+    [
+      "host_name",
+      {
+        "prompt_type": "text",
+        "prompt_text": {
+          "en": [
+            "To get the SharePoint SiteID, You must specify:\n1. SharePoint site host (e.g., cent.sharepoint.com)"
+          ],
+          "cn": [
+            "为获取 SharePoint Site，你需要提供如下两个参数:\n1. SharePoint site host (比如：cent.sharepoint.com)"
+          ]
+        }
+      }
+    ],
+    [
+      "site_path",
+      {
+        "prompt_type": "text",
+        "prompt_text": {
+          "en": [
+            "SharePoint sites path (e.g., /sites/centUser)"
+          ],
+          "cn": [
+            "SharePoint sites path (比如：/sites/centUser)"
+          ]
+        }
+      }
+    ]
+  ]
+}

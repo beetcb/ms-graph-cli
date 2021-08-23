@@ -7,14 +7,9 @@
     "dist/"
   ],
   "scripts": {
-    "build": "parcel build src/index.js --no-source-maps",
-    "fmt": "deno fmt .",
+    "prebuild": "dprint fmt",
+    "build": "node build/bundle.js",
     "pub": "npm publish --access=public"
-  },
-  "targets": {
-    "default": {
-      "context": "node"
-    }
   },
   "repository": {
     "type": "git",
@@ -35,12 +30,11 @@
   "homepage": "https://github.com/beetcb/ms-graph-cli#readme",
   "dependencies": {
     "fastify": "^3.18.0",
-    "inquirer": "^7.3.3",
     "node-fetch": "^2.6.1",
-    "open": "^7.4.2"
+    "open": "^7.4.2",
+    "prompts": "^2.4.1"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-beta.3.1",
-    "parcel-plugin-shebang": "^1.3.2"
+    "esbuild": "^0.12.22"
   }
 }
