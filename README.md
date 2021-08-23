@@ -22,16 +22,16 @@ If you are somehow unable to meet the requirements of `redirect_uri`, please use
 
 ```bash
 # Print generated credentials to stdout
-npx @beetcb/ms-graph-cli@next
+npx @beetcb/ms-graph-cli
 
 # Save generated credentials to .env file
-npx @beetcb/ms-graph-cli@next -s
+npx @beetcb/ms-graph-cli -s
 
 # Specify the display language, support CN \ EN, default is EN
-npx @beetcb/ms-graph-cli@next -l CN
+npx @beetcb/ms-graph-cli -l cn
 
-# Or using them both
-npx @beetcb/ms-graph-cli@next -s -l CN
+# Or specify them both
+npx @beetcb/ms-graph-cli -s -l cn
 ```
 
 ## Generated credentials
@@ -54,5 +54,6 @@ All fields in the object are your private information, please keep it safe.
 ## TODO
 
 - [x] Create a local server to catch the redirect `code`
+- [x] Better error handling
 
-[legacy-version]: https://github.com/beetcb/ms-graph-cli/tree/1d09dbc6ecc88b3429e3aac17d002b01f8848164#cli-usage
+[legacy-version]: https://www.npmjs.com/package/@beetcb/ms-graph-cli/v/0.1.0

@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "dprint fmt",
     "build": "node build/bundle.js",
-    "pub": "npm publish --access=public --tag=next"
+    "pub": "npm publish --access=public"
   },
   "repository": {
     "type": "git",
