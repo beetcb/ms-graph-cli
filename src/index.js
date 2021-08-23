@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
 import open from 'open'
 import prompts from 'prompts'
 
-import json from './hints.json'
+import json from '../hints.json'
 import serve from './serve'
 import { delTmpKeys, someUndefinedOrEmptyString } from './utils'
 
@@ -63,7 +63,9 @@ async function init(lang) {
       }&redirect_uri=${redirect_uri}`,
     )
 
-    const code = await serve(redirect_uri)
+    const code = await serve(redirect_uri).catch(() =>
+      console.error('\u274c Acquire authorization_code failed!')
+    )
 
     const credentials = {
       account_type,
@@ -109,7 +111,7 @@ async function acquireToken(credentials) {
       const { refresh_token, access_token } = data
       return { refresh_token, access_token }
     } else {
-      console.error('\u274c Get token failed!' + res.statusText)
+      console.error('\u274c Acquire token failed! ' + res.statusText)
     }
   }
 }

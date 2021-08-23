@@ -36,7 +36,7 @@ npx @beetcb/ms-graph-cli@next -s -l CN
 
 ## Generated credentials
 
-**It's a `object` contains following key-value pairs:**
+**It's a `object`(maybe `.env`-fromatted) contains following key-value pairs:**
 
 - `access_token`: use it to access ms-graph
 - `refresh_token`: use it to refresh the `access_token`
@@ -49,7 +49,7 @@ npx @beetcb/ms-graph-cli@next -s -l CN
 - `graph_api`: api endpoint to access ms-graph
 - `site_id?`: sharepoint site id
 
-These are your secrets 💕, please keep it safe.
+All fields in the object are your private information, please keep it safe.
 
 ## TODO
 
