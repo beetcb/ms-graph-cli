@@ -12,7 +12,7 @@ import serve from './serve'
 import { delTmpKeys, someUndefinedOrEmptyString } from './utils'
 
 /**
- * Don't wanna introduce typescript beacuse json produces a dynamic type
+ * Don't wanna introduce typescript because json produces a dynamic type
  * @typedef {typeof json} StepsWithHint
  * @typedef {StepsWithHint[keyof StepsWithHint]} Hints
  * @typedef {'en' | 'cn'} Lang
@@ -55,9 +55,9 @@ async function init(lang) {
       `${auth_endpoint}/authorize?${
         new URLSearchParams({
           client_id,
-          scope: deploy_type === 'OneDrive'
-            ? 'Files.Read.All Files.ReadWrite.All offline_access'
-            : 'Sites.Read.All Sites.ReadWrite.All offline_access',
+          scope: deploy_type
+            ? 'Sites.Read.All Sites.ReadWrite.All offline_access' // SharePoint
+            : 'Files.Read.All Files.ReadWrite.All offline_access', // OneDrive
           response_type: 'code',
         }).toString()
       }&redirect_uri=${redirect_uri}`,
