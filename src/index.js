@@ -197,6 +197,17 @@ async function getPromptWithHints(hints, lang) {
 
   argumets.forEach((e) => {
     switch (e) {
+      case '-h':
+      case '--help': {
+        console.log(`
+Usage: ms-graph-cli [options]
+Options: 
+    -h, --help    show this help message
+    -s, --save    save generated .env file in cwd
+    -l, --lang    change the prompt's language, valid values are: 'en', 'cn'
+          `)
+        process.exit(1)
+      }
       case '-s':
       case '--save': {
         isSave = 1
