@@ -35,6 +35,7 @@ async function init(lang) {
   const res = await getPromptWithHints(steps.step_init, lang)
   const { client_id, client_secret, deploy_type, account_type, redirect_uri } =
     res
+
   if (
     !someUndefinedOrEmptyString(
       client_id,

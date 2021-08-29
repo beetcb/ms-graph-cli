@@ -3,5 +3,5 @@ export function delTmpKeys(credentials, keys) {
 }
 
 export function someUndefinedOrEmptyString(...args) {
-  return args.some((k) => k === undefined)
+  return args.some((k) => k === undefined || k === '')
 }
